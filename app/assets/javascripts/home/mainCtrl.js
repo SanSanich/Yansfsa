@@ -2,20 +2,14 @@ angular.module('Yansfsa')
 .controller('MainCtrl', [
 '$scope',
 'posts',
-function($scope,posts){
+function($scope, posts){
+
   $scope.posts = posts.posts;
   $scope.addPost = function(){
-    if(!$scope.title || $scope.title === '') {
-      return;
-    }
-    $scope.posts.push({
+    if(!$scope.title || $scope.title === '') { return; }
+    posts.create({
       title: $scope.title,
       link: $scope.link,
-      upvotes: 0,
-      comments: [
-        {author: 'Joe', body: 'Cool post!', upvotes: 0},
-        {author: 'Bob', body: 'Greate idea but everything is wrong!', upvotes: 0}
-      ]
     });
     $scope.title = '';
     $scope.link = '';
@@ -23,4 +17,4 @@ function($scope,posts){
   $scope.incrementUpvotes = function(post) {
     post.upvotes += 1;
   };
-}]);
+}])

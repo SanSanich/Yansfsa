@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
 	end
 
 	def upvote
-		post = Post.find(params[:post_id])
-		comment = post.comment.find(params[:id])
-		comment.increment!(:upvotes)
+		@post = Post.find(params[:post_id])
+		@comment = post.comments.find(params[:id])
+		@comment.increment!(:upvotes)
 
-		respond_with post,comment
+		respond_with @post, @comment
 	end
 
 	private
