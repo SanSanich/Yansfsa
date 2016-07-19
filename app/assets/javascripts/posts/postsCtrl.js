@@ -1,5 +1,5 @@
 angular.module('Yansfsa')
-.controller('PostCtrl', [
+.controller('PostsCtrl', [
 '$scope',
 'posts',
 'post',
