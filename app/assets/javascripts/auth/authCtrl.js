@@ -15,4 +15,4 @@ function($scope, $state, Auth){
 			$state.go('home');
 		});
 	};
-}]);
+}])

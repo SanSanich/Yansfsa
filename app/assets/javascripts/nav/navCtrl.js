@@ -4,7 +4,7 @@ angular.module('Yansfsa')
 'Auth',
 function($scope, Auth){
 	$scope.signedIn = Auth.isAuthenticated;
-	
+
 	$scope.logout = Auth.logout;
 
 	Auth.currentUser().then(function (user){
@@ -22,4 +22,4 @@ function($scope, Auth){
 	$scope.$on('devise:logout', function (e, user){
 		$scope.user = {};
 	});
-}]);
+}])
