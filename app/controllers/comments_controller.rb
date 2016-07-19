@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+	
+	before_filter :authenticate_user!, only: [:create, :upvote]
+
 	respond_to :json
 
 	def create

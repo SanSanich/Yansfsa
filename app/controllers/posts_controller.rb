@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
-	respond_to :json
 	
+	before_filter :authenticate_user!, only: [:create, :upvote]
+	
+	respond_to :json
+
 	def index
 		respond_with Post.all
 	end
