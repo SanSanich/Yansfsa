@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	respond_to :json
+
 	def create
 		post = Post.find(params[:post_id])
 		comment = post.comments.create(comment_params)
@@ -6,11 +8,11 @@ class CommentsController < ApplicationController
 	end
 
 	def upvote
-		@post = Post.find(params[:post_id])
-		@comment = post.comments.find(params[:id])
-		@comment.increment!(:upvotes)
+		post = Post.find(params[:post_id])
+		comment = post.comments.find(params[:id])
+		comment.increment!(:upvotes)
 
-		respond_with @post, @comment
+		respond_with post, comment
 	end
 
 	private
